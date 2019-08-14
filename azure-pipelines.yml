@@ -38,10 +38,8 @@ steps:
   inputs:
     dockerVersion: '17.09.0-ce'
 
-- task: DockerCompose@0
+- task: Docker@2
   inputs:
-    containerregistrytype: 'Azure Container Registry'
-    azureSubscription: 'Visual Studio Enterprise (51de0264-dca2-4a5b-af11-02afb60ad439)'
-    azureContainerRegistry: '{"loginServer":"kedklivecontainerregistry.azurecr.io", "id" : "/subscriptions/51de0264-dca2-4a5b-af11-02afb60ad439/resourceGroups/container_registry/providers/Microsoft.ContainerRegistry/registries/kedklivecontainerregistry"}'
-    dockerComposeFile: '**/docker-compose.yml'
-    action: 'Push services'
+    containerRegistry: 'azure_docker_registry'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
