@@ -41,7 +41,7 @@ steps:
 - task: Docker@2
   inputs:
     containerRegistry: 'azure_docker_registry'
-    repository: 'api_win_container'
+    repository: 'kedk2135/api_win_container'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
 
